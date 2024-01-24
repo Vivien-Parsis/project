@@ -1,6 +1,8 @@
 <template>
     <nav>
         <router-link to="/">home</router-link>
+        <router-link to="/serie">serie</router-link>
+        <router-link to="/film">film</router-link>
         <router-link to="/contact">contact</router-link>
     </nav>
    

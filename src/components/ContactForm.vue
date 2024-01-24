@@ -1,38 +1,28 @@
 <script setup>
     import { ref } from 'vue'  
-    import InputComponent from './InputComponent.vue'
-    import InputEmit from './InputEmit.vue'
+    import axios from 'axios'
     const message = ref("")
-    const getMessage = (value) => {message.value = value}
-    const formContent = ref([
-        {
-            type:"text",
-            placeholder:"nom",
-            name:"nom",
-            autocomplete:"on"
-        },
-        {
-            type:"email",
-            placeholder:"mail",
-            name:"mail"
-        },
-        {
-            
-        },
-        {
-            type:"textarea",
-            placeholder:"message",
-            name:"message"
-        }
-    ])
+    const formValue = ref([])
+    const emits = defineEmits()
+    const envoyeContact = () => {
+        console.log("📨 - message envoyé")
+        axios.post('https://vue-project-api-57ap.onrender.com/api/message/send',{
+            email:formValue.value.email ? formValue.value.email : '',
+            message:formValue.value.message ? formValue.value.message : ''
+        })
+        for(let item in formValue.value){formValue.value[item]=""}
+    }
 </script>
 <template>
-    <form>
-        <h3>Contact us</h3>
-        <InputComponent v-for="(value, index) in formContent" :inputData="value" :key="index"/>
-        <InputEmit @message="getMessage"/>
-    </form>
-    <p>{{ message }}</p>
+    <div>
+        <form>
+            <h3>Contact us</h3>
+            <input type="email" placeholder="inserer email ici..." v-model="formValue.email">
+            <textarea placeholder="inserer message ici..." v-model="formValue.message"></textarea>
+            <input type="button" value="envoyez" @click="envoyeContact()"> 
+        </form>
+        <p>{{ message }}</p>
+    </div>
 </template>
 <style scoped>
     form{
