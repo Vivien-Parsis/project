@@ -6,6 +6,7 @@ import Home from './pages/home.vue'
 import Contact from './pages/contact.vue'
 import Serie from './pages/serie.vue'
 import Film from './pages/film.vue'
+import FilmWatch from './pages/filmWatch.vue'
 
 const routes = [
     {
@@ -19,6 +20,9 @@ const routes = [
     },
     {
         path : "/contact", component : Contact
+    },
+    {
+        path : "/film/watch/:id", component : FilmWatch, params:true
     }
 ]
 
