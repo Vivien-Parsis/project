@@ -1,7 +1,7 @@
 <script setup>
     import HeaderComponent from '../components/HeaderComponent.vue'
     import NavComponent from '../components/NavComponent.vue'
-    import FilmWatchComponent from '../components/FilmWatchComponent.vue'
+    import FilmWatchComponent from '../components/film/FilmWatchComponent.vue'
 </script>
 <template>
     <HeaderComponent>Film</HeaderComponent>

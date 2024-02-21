@@ -6,7 +6,7 @@
 </script>
 <template>
     <div v-for="film in ListFilm">
-        <h4 v-text="film.nom"></h4>
+        <h3 v-text="film.nom"></h3>
         <iframe v-bind:src="film.video"></iframe>
         <p v-text="film.synospis"></p>
         <router-link v-bind:to="'/film/watch/'+film.id">Regarder</router-link>
@@ -25,7 +25,7 @@ div{
     align-items: center;
     align-content: center;
 }
-div h4, div p{
+div h3, div p{
     margin:0
 }
 div *:not(div){

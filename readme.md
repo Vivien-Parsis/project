@@ -17,18 +17,22 @@ Site pour parcourir une liste de differents media
 
 ## Adresse
 
-`http://localhost:5173`
+`http://localhost:3100`
 
 ## Exemple d'utilisation
 
 ### Avoir la liste de films
 
-`http://localhost:5173/film`
+`http://localhost:3100/film`
 
 ### Avoir la liste de series
 
-`http://localhost:5173/serie`
+`http://localhost:3100/serie`
 
 ## lien vers les apis utilisées
 
 - [API media](https://vue-project-api-57ap.onrender.com) - [github](https://github.com/Vivien-Parsis/vue-project-api)
+
+## Auteur
+
+- [Vivien PARSIS](https://github.com/Vivien-Parsis)
