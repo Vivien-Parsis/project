@@ -1,38 +1,18 @@
 import './style.css'
 import { createApp } from 'vue'
  import App from './App.vue'
-import {  createRouter, createWebHistory } from 'vue-router'
-import Home from './pages/home.vue'
-import Contact from './pages/contact.vue'
-import Serie from './pages/serie.vue'
-import Film from './pages/film.vue'
-import FilmWatch from './pages/filmWatch.vue'
+import { router } from './router'
+import { createPinia } from 'pinia'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faUserSecret, faHome } from '@fortawesome/free-solid-svg-icons'
+library.add(faUserSecret,faHome)
 
-const routes = [
-    {
-        path : "/", component : Home
-    },
-    {
-        path : "/serie", component : Serie
-    },
-    {
-        path : "/film", component : Film
-    },
-    {
-        path : "/contact", component : Contact
-    },
-    {
-        path : "/film/watch/:id", component : FilmWatch, params:true
-    }
-]
-
-const router = createRouter({
-    history: createWebHistory(),
-    routes, 
-  })
+const pinia = createPinia()
 
 const app = createApp( App )
-
+app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(router)
+app.use(pinia)
 
 app.mount('#app')

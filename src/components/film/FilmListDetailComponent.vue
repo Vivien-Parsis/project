@@ -2,7 +2,6 @@
     const {ListFilm} = defineProps({
         ListFilm:Array
     })
-    console.log(ListFilm)
 </script>
 <template>
     <div v-for="film in ListFilm">

@@ -1,14 +1,9 @@
 <script setup>
-    import { onMounted, ref } from 'vue'  
-    import axios from 'axios'
+    import { onMounted, ref } from 'vue'
     import FilmListDetailComponent from './FilmListDetailComponent.vue';
-    const getFilm = async () => {
-        await axios.get('https://vue-project-api-57ap.onrender.com/api/film/get').then((data)=>{
-        console.log(data.data)
-        FilmList.value = data.data
-    })}
-    onMounted(()=>{
-        getFilm()
+    import { filmService } from '../../services';
+    onMounted(async ()=>{
+        FilmList.value = await filmService.getFilm()
     })
     let FilmList = ref()
     

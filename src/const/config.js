@@ -1,0 +1,1 @@
+export const api_url = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL : "https://vue-project-api-57ap.onrender.com"

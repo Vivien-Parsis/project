@@ -1,28 +1,28 @@
 <script setup>
     import { onMounted, ref } from 'vue'  
+    import { filmService } from '../../services'
     import {useRoute} from "vue-router"
-    import axios from 'axios'
     const route = useRoute()
-    const getFilm = async () => {
-        await axios.get('https://vue-project-api-57ap.onrender.com/api/film/get').then((data)=>{
-        const AllFilm = data.data
-        for(let film of AllFilm){
+    const getFilm = () => {
+        for(let film of FilmList.value){
             if(film.id == route.params.id){
-                Film.value = film
+                currentFilm.value = film
                 break
             }
         }
-    })}
-    onMounted(()=>{
+    }
+    onMounted(async ()=>{
+        FilmList.value = await filmService.getFilm()
         getFilm()
     })
-    let Film = ref()
+    let FilmList = ref()
+    let currentFilm = ref()
 </script>
 <template>
     <div>
-        <h4 v-text="Film ? Film.nom : ''"></h4>
-        <iframe v-bind:src="Film ? Film.video : ''"></iframe>
-        <p v-text="Film ? Film.synospis : ''"></p>
+        <h4 v-text="currentFilm ? currentFilm.nom : ''"></h4>
+        <iframe v-bind:src="currentFilm ? currentFilm.video : ''"></iframe>
+        <p v-text="currentFilm ? currentFilm.synospis : ''"></p>
     </div>
 </template>
 <style scoped>
