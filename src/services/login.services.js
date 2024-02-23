@@ -1,9 +1,13 @@
 import axios from "axios"
 import { api_url } from "../const/config"
 
-export class filmService{
-    static async getFilm () {
-        const res = await axios.get(api_url+'/api/film/get')
+export class loginService{
+    static async signIn (email, password) {
+        const res = await axios.post(api_url+'/api/login/signin',{email:email,password:password})
+        return res.data
+    }
+    static async signUp (email, password) {
+        const res = await axios.post(api_url+'/api/login/signup',{email:email,password:password})
         return res.data
     }
 } 

@@ -1,10 +1,12 @@
 <script setup>
-    import loginFormComponent from '../components/login/loginFormComponent.vue'
+    import signInFormComponent from '../components/login/SignInFormComponent.vue'
     import NavComponent from '../components/NavComponent.vue'
     import HeaderComponent from '../components/HeaderComponent.vue'
 </script>
 <template>
     <HeaderComponent>Login</HeaderComponent>
     <NavComponent/>
-    <loginFormComponent/>
+    <h2>Se connecter</h2>
+    <signInFormComponent/>
+    <router-link to="/signup">Se créer un compte</router-link>
 </template>
