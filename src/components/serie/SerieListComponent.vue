@@ -1,12 +1,15 @@
 <script setup>
-    import { onMounted, ref } from 'vue'
+    import { onMounted, ref, watch } from 'vue'
     import SerieListDetailComponent from './SerieListDetailComponent.vue';
     import { serieService } from '../../services';
     onMounted(async ()=>{
+        console.log("📨 - recupérations des séries...")
         SerieList.value = await serieService.getSerie()
-        console.log(SerieList.value)
     })
     let SerieList = ref()
+    watch(SerieList, ()=>{
+        console.log("📩 - series reçus")
+    })
     
 </script>
 <template>

@@ -12,11 +12,15 @@
         }
     }
     onMounted(async ()=>{
+        console.log("📨 - recupérations de la série...")
         SerieList.value = await serieService.getSerie()
         getSerie()
     })
     let SerieList = ref()
     let currentSerie = ref()
+    watch(currentSerie, ()=>{
+        console.log("📩 - serie reçu")
+    })
 </script>
 <template>
     <div>

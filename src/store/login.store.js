@@ -30,6 +30,7 @@ export const useLoginStore = defineStore('login',()=>{
     }
     function signOut() {
         user.value = []
+        window.localStorage.removeItem("user")
     }
-    return { signIn, signUp, getUser, user}
+    return { signIn, signUp, signOut, getUser, user}
 })

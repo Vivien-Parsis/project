@@ -2,20 +2,20 @@
     import { router } from '../../router';
     import { useLoginStore } from '../../store/login.store'
     const loginStore = useLoginStore()
+    import { toRaw } from 'vue';
     import { storeToRefs } from 'pinia'
-    const { signUp } = storeToRefs(loginStore) 
-    const formSignUp = async (event) => {
-        event.preventDefault()
-        await loginStore.signUp(event.target.email.value, event.target.password.value)
+    const { signOut , user } = storeToRefs(loginStore) 
+    const SignOut = async () => {
+        await loginStore.signOut()
         router.push({path:"/"})
     } 
 </script>
 <template>
-    <form @submit="formSignUp">
-        <input name="email" type="email" placeholder="inserer email..." required>
-        <input name="password" type="password" placeholder="inserer mot de passe..." required>
-        <input type="submit" value="se connecter">
-    </form>
+    <h3>Mes infos</h3>
+    <ul>
+        <li>Email : {{ loginStore.user.email ? loginStore.user.email : "" }}</li>
+    </ul>
+    <button @click="SignOut()">Se deconnecter</button>
 </template>
 <style scoped>
     form{
@@ -25,5 +25,8 @@
         align-items: center;
         flex-direction: column;
         align-content: center;
+    }
+    ul{
+        list-style: none;
     }
 </style>

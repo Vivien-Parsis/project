@@ -1,29 +1,42 @@
 <script setup>
     import { ref } from 'vue';
     import HomeSectionComponent from './HomeSectionComponent.vue'
-    const listeFilmNouveaute = ref([
+    const ListMainSection = ref([
         {
-            name:"Avatar 2",
-            link:"/film/watch/2"
+            title : "Nouveauté film",
+            content : [{
+                name:"Avatar 2",
+                link:"/film/watch/2"
+            },{
+                name:"The batman",
+                link:"/film/watch/8"
+            }]
         },{
-            name:"The batman",
-            link:"/film/watch/8"
-        }
-    ])
-    const filmPopulaire = ref([
-        {
-            name:"Avenger",
-            link:"/film/watch/4"
+            title : "Film populaire",
+            content : [{
+                name:"Avenger",
+                link:"/film/watch/4"
+            },{
+                name:"Top Gun",
+                link:"/film/watch/5"
+            }]
         },{
-            name:"Top Gun",
-            link:"/film/watch/5"
+            title : "Série populaire",
+            content : [{
+                name:"Loki",
+                link:"/serie/watch/1"
+            },{
+                name:"Serie",
+                link:"/serie/watch/2"
+            }]
         }
     ])
 </script>
 
 <template>
-    <HomeSectionComponent title="Nouveauté film" v-bind:listlink="listeFilmNouveaute"/>
-    <HomeSectionComponent title="Film populaire" v-bind:listlink="filmPopulaire"/>
+    <section v-for="MainSection in ListMainSection">
+        <HomeSectionComponent :title="MainSection.title" :listlink="MainSection.content"/>
+    </section>
 </template>
 
 <style scoped>

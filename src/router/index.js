@@ -6,6 +6,7 @@ import Film from '../pages/film.vue'
 import FilmWatch from '../pages/filmWatch.vue'
 import SignIn from '../pages/signIn.vue'
 import SignUp from '../pages/signUp.vue'
+import Account from '../pages/account.vue'
 import Error404 from '../pages/404error.vue'
 import { useLoginStore } from '../store/login.store'
 
@@ -24,6 +25,8 @@ const routes = [
         path : "/signin", component : SignIn, meta:{authReq:false}
     },{
         path : "/signup", component : SignUp, meta:{authReq:false}
+    },{
+        path : "/account", component : Account, meta:{authReq:true}
     },{
         path : "/:404*", component : Error404, meta:{authReq:false} 
     }

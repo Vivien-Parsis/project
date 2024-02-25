@@ -1,11 +1,12 @@
 <script setup>
     import HeaderComponent from '../components/HeaderComponent.vue'
     import NavComponent from '../components/NavComponent.vue'
+    import AccountComponent from '../components/account/AccountComponent.vue'
     import FooterComponent from '../components/FooterComponent.vue'
 </script>
 <template>
-    <HeaderComponent>ERROR 404</HeaderComponent>
+    <HeaderComponent>Contact</HeaderComponent>
     <NavComponent/>
-    <p>ERROR 404</p>
+    <AccountComponent/>
     <FooterComponent/>
 </template>

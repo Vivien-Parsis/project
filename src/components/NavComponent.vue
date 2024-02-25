@@ -4,6 +4,7 @@
         <router-link to="/serie">serie</router-link>
         <router-link to="/film">film</router-link>
         <router-link to="/contact">contact</router-link>
+        <router-link to="/account">mon compte</router-link>
     </nav>
    
 </template>

@@ -1,7 +1,7 @@
 <script setup>
     import { ref } from 'vue'
     import { messageService } from "../../services"
-
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     const formValue = ref([])
     const errorMessage = ref("")
 

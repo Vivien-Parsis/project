@@ -2,10 +2,27 @@
     import signUpFormComponent from '../components/login/SignUpFormComponent.vue'
     import NavComponent from '../components/NavComponent.vue'
     import HeaderComponent from '../components/HeaderComponent.vue'
+    import FooterComponent from '../components/FooterComponent.vue'
 </script>
 <template>
-    <HeaderComponent>Login</HeaderComponent>
+    <HeaderComponent>Connexion</HeaderComponent>
     <NavComponent/>
     <h2>Créer un compte</h2>
     <signUpFormComponent/>
+    <router-link to="/signIn" class="SignLink">Se connecter</router-link>
+    <FooterComponent/>
 </template>
+<style scoped>
+    h2, .SignLink{
+        display: block;
+        width:100%;
+        text-align: center;
+    }
+    .SignLink{
+        color:black;
+        text-decoration: none;
+    }
+    .SignLink:hover{
+        color:aquamarine;
+    }
+</style>

@@ -2,6 +2,7 @@
     import HeaderComponent from '../components/HeaderComponent.vue'
     import NavComponent from '../components/NavComponent.vue'
     import FilmList from '../components/film/FilmListComponent.vue'
+    import FooterComponent from '../components/FooterComponent.vue'
 </script>
 <template>
     <HeaderComponent>Film</HeaderComponent>
@@ -9,6 +10,7 @@
     <div id="filmContainer">
         <FilmList/>
     </div>
+    <FooterComponent/>
 </template>
 <style scoped>
 #filmContainer{

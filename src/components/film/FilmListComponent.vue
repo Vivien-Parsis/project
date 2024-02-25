@@ -1,11 +1,15 @@
 <script setup>
-    import { onMounted, ref } from 'vue'
+    import { onMounted, ref, watch } from 'vue'
     import FilmListDetailComponent from './FilmListDetailComponent.vue';
     import { filmService } from '../../services';
     onMounted(async ()=>{
+        console.log("📨 - recupérations des films...")
         FilmList.value = await filmService.getFilm()
     })
     let FilmList = ref()
+    watch(FilmList, ()=>{
+        console.log("📩 - films reçus")
+    })
     
 </script>
 <template>

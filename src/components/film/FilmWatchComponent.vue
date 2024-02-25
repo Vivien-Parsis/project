@@ -1,5 +1,5 @@
 <script setup>
-    import { onMounted, ref } from 'vue'  
+    import { onMounted, ref, watch } from 'vue'  
     import { filmService } from '../../services'
     import {useRoute} from "vue-router"
     const route = useRoute()
@@ -12,11 +12,15 @@
         }
     }
     onMounted(async ()=>{
+        console.log("📨 - recupérations du film...")
         FilmList.value = await filmService.getFilm()
         getFilm()
     })
     let FilmList = ref()
     let currentFilm = ref()
+    watch(currentFilm, ()=>{
+        console.log("📩 - serie reçu")
+    })
 </script>
 <template>
     <div>

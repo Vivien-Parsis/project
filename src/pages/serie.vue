@@ -2,6 +2,7 @@
     import HeaderComponent from '../components/HeaderComponent.vue'
     import NavComponent from '../components/NavComponent.vue'
     import SerieList from '../components/serie/SerieListComponent.vue'
+    import FooterComponent from '../components/FooterComponent.vue'
 </script>
 <template>
     <HeaderComponent>Serie</HeaderComponent>
@@ -9,6 +10,7 @@
     <div id="serieContainer">
         <SerieList/>
     </div>
+    <FooterComponent/>
 </template>
 <style scoped>
 #serieContainer{
