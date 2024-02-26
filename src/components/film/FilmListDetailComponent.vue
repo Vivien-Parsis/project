@@ -1,4 +1,8 @@
 <script setup>
+    import { useUserStore } from '../../store/user.store'
+    import { storeToRefs } from 'pinia'
+    const userStore = useUserStore()
+    const { switchFavoriteFilm, filmFavorite} = storeToRefs(userStore)
     const {ListFilm} = defineProps({
         ListFilm:Array
     })
@@ -9,6 +13,9 @@
         <iframe v-bind:src="film.video"></iframe>
         <p v-text="film.synospis"></p>
         <router-link v-bind:to="'/film/watch/'+film.id">Regarder</router-link>
+        <button class="favButton" @click="userStore.switchFavoriteFilm(film.id)">
+            <img src="../../assets/img/unfav.svg"> 
+        </button>
     </div>
 </template>
 <style scoped>
@@ -28,7 +35,7 @@ div h3, div p{
     margin:0
 }
 div *:not(div){
-    margin:1em 0
+    margin:0 0 1em
 }
 div p{
     text-align: center;
@@ -45,5 +52,11 @@ div iframe{
     width: 90%;
     aspect-ratio:16/9;
 }
-
+.favButton{
+    background-color: rgba(0,0,0,0);
+    border:none;
+}
+.favButton img{
+    width: 2em;
+}
 </style>

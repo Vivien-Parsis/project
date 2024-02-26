@@ -2,7 +2,7 @@
     import { router } from '../../router';
     import { useLoginStore } from '../../store/login.store'
     const loginStore = useLoginStore()
-    import { toRaw } from 'vue';
+    import { toRaw } from 'vue'
     import { storeToRefs } from 'pinia'
     const { signIn , user } = storeToRefs(loginStore) 
     const formSignIn = async (event) => {
