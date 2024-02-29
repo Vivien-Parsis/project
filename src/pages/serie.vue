@@ -1,7 +1,7 @@
 <script setup>
     import HeaderComponent from '../components/HeaderComponent.vue'
     import NavComponent from '../components/NavComponent.vue'
-    import SerieList from '../components/serie/SerieListComponent.vue'
+    import SerieList from '../components/serie/SerieComponent.vue'
     import FooterComponent from '../components/FooterComponent.vue'
 </script>
 <template>

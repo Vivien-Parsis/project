@@ -1,6 +1,9 @@
 <script setup>
-    import { ref } from 'vue';
+    import { ref} from 'vue'
     import HomeSectionComponent from './HomeSectionComponent.vue'
+    import { useLoadingStore } from '../../store/loading.store'
+    const loadingStore = useLoadingStore()
+    loadingStore.setLoading(false)
     const ListMainSection = ref([
         {
             title : "Nouveauté film",
@@ -23,10 +26,19 @@
         },{
             title : "Série populaire",
             content : [{
+                name:"Casa de papel",
+                link:"/serie/watch/4"
+            },{
+                name:"Breaking bad",
+                link:"/serie/watch/7"
+            }]
+        },{
+            title : "Nouvelle série",
+            content : [{
                 name:"Loki",
                 link:"/serie/watch/1"
             },{
-                name:"Serie",
+                name:"The Mandalorian",
                 link:"/serie/watch/2"
             }]
         }

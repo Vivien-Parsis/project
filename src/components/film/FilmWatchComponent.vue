@@ -1,7 +1,9 @@
 <script setup>
     import { onMounted, ref, watch } from 'vue'  
     import { filmService } from '../../services'
+    import { useLoginStore } from '../../store/login.store'
     import {useRoute} from "vue-router"
+    const loginStore = useLoginStore()
     const route = useRoute()
     const getFilm = () => {
         for(let film of FilmList.value){
@@ -13,7 +15,7 @@
     }
     onMounted(async ()=>{
         console.log("📨 - recupérations du film...")
-        FilmList.value = await filmService.getFilm()
+        FilmList.value = await filmService.getFilm(loginStore.user.email,loginStore.user.password)
         getFilm()
     })
     let FilmList = ref()

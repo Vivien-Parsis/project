@@ -1,9 +1,11 @@
 <script setup>
     import { router } from '../../router';
     import { useLoginStore } from '../../store/login.store'
-    const loginStore = useLoginStore()
-    import { toRaw } from 'vue';
+    import { useLoadingStore } from '../../store/loading.store'
     import { storeToRefs } from 'pinia'
+    const loadingStore = useLoadingStore()
+    loadingStore.setLoading(false)
+    const loginStore = useLoginStore()
     const { signOut , user } = storeToRefs(loginStore) 
     const SignOut = async () => {
         await loginStore.signOut()

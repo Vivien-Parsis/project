@@ -1,7 +1,9 @@
 <script setup>
-    import { onMounted, ref } from 'vue'  
+    import { onMounted, ref, watch } from 'vue'  
     import { serieService } from '../../services'
+    import { useLoginStore } from '../../store/login.store'
     import {useRoute} from "vue-router"
+    const loginStore = useLoginStore()
     const route = useRoute()
     const getSerie = () => {
         for(let serie of SerieList.value){
@@ -13,7 +15,7 @@
     }
     onMounted(async ()=>{
         console.log("📨 - recupérations de la série...")
-        SerieList.value = await serieService.getSerie()
+        SerieList.value = await serieService.getSerie(loginStore.user.email,loginStore.user.password)
         getSerie()
     })
     let SerieList = ref()

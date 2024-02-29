@@ -4,6 +4,7 @@ import Contact from '../pages/contact.vue'
 import Serie from '../pages/serie.vue'
 import Film from '../pages/film.vue'
 import FilmWatch from '../pages/filmWatch.vue'
+import SerieWatch from '../pages/serieWatch.vue'
 import SignIn from '../pages/signIn.vue'
 import SignUp from '../pages/signUp.vue'
 import Account from '../pages/account.vue'
@@ -23,6 +24,8 @@ const routes = [
     },{
         path : "/film/watch/:id", component : FilmWatch, params:true, meta:{authReq:true}
     },{
+        path : "/serie/watch/:id", component : SerieWatch, params:true, meta:{authReq:true}
+    },{
         path : "/signin", component : SignIn, meta:{authReq:false}
     },{
         path : "/signup", component : SignUp, meta:{authReq:false}
@@ -31,7 +34,7 @@ const routes = [
     },{
         path : "/account", component : Account, meta:{authReq:true}
     },{
-        path : "/:404*", component : Error404, meta:{authReq:false} 
+        path : "/:pathMatch(.*)*", component : Error404, meta:{authReq:false} 
     }
 ]
 
@@ -42,6 +45,9 @@ export const router = createRouter({
 })
 router.beforeEach((to, from)=>{
     const loginStore = useLoginStore()
+    if(to.meta.authReq){
+        loginStore.signIn(loginStore.user.email,loginStore.user.password)
+    }
     if(to.path!=="/signin" && to.meta.authReq && !loginStore.user.email && !loginStore.user.password){
         return "/signin"
     }

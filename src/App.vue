@@ -1,12 +1,20 @@
-<template >
-    <router-view v-slot="{ Component , route }"> 
-        <Transition name="slide-fade" mode="out-in">
-            <div :key="route.path">
-                <component :is="Component">
-                </component>
-            </div>
-        </Transition>
-    </router-view>
+<script setup>
+    import LoadingComponent from './components/LoadingComponent.vue';
+    import { ref } from 'vue'
+    import { useLoadingStore } from './store/loading.store'
+    const loadingStore = useLoadingStore()
+</script>
+
+<template>
+    <LoadingComponent v-if="loadingStore.getLoading()"/>
+        <router-view v-slot="{ Component , route }"> 
+            <Transition name="slide-fade" mode="out-in">
+                <div :key="route.path" @loading="unableLoading()">
+                    <component :is="Component">
+                    </component>
+                </div>
+            </Transition>
+        </router-view>
 </template>  
 
 <style scoped>
