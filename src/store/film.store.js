@@ -10,5 +10,13 @@ export const useFilmStore = defineStore('film',()=>{
             console.log(err)
         }
     }
-    return { getFilm }
+    async function searchFilm (email, password, id) {
+        try{
+            return await filmService.searchFilm(email, password, id)
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+    return { getFilm, searchFilm }
 })

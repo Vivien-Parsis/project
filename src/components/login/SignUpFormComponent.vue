@@ -1,7 +1,10 @@
 <script setup>
     import { router } from '../../router';
     import { useLoginStore } from '../../store/login.store'
+    import { useLoadingStore } from '../../store/loading.store'
+    const loadingStore = useLoadingStore()
     const loginStore = useLoginStore()
+    loadingStore.setLoading(false)
     import { storeToRefs } from 'pinia'
     const { signUp } = storeToRefs(loginStore) 
     const formSignUp = async (event) => {

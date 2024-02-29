@@ -10,5 +10,13 @@ export const useSerieStore = defineStore('serie',()=>{
             console.log(err)
         }
     }
-    return { getSerie }
+    async function searchSerie (email, password, id) {
+        try{
+            return await serieService.searchSerie(email, password, id)
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+    return { getSerie, searchSerie }
 })

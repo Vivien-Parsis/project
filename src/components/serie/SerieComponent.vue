@@ -5,12 +5,12 @@
     import { useLoginStore } from '../../store/login.store'
     import { useLoadingStore } from '../../store/loading.store'
     const loadingStore = useLoadingStore()
-    loadingStore.setLoading(true)
     const loginStore = useLoginStore()
     const serieService = useSerieStore()
+    const user = loginStore.getUser()
     onMounted(async ()=>{
         console.log("📨 - recupérations des séries...")
-        SerieList.value = await serieService.getSerie(loginStore.user.email,loginStore.user.password)
+        SerieList.value = await serieService.getSerie(user.email,user.password)
     })
     let SerieList = ref()
     watch(SerieList, ()=>{

@@ -3,14 +3,14 @@
     import FilmListDetailComponent from './FilmListDetailComponent.vue'
     import { useLoginStore } from '../../store/login.store'
     import { useFilmStore } from '../../store/film.store'
+    import { useLoadingStore } from '../../store/loading.store'
     const loginStore = useLoginStore()
     const filmStore = useFilmStore()
-    import { useLoadingStore } from '../../store/loading.store'
     const loadingStore = useLoadingStore()
-    loadingStore.setLoading(true)
+    const user = loginStore.getUser()
     onMounted(async ()=>{
         console.log("📨 - recupérations des films...")
-        FilmList.value = await filmStore.getFilm(loginStore.user.email,loginStore.user.password)
+        FilmList.value = await filmStore.getFilm(user.email,user.password)
     })
     let FilmList = ref()
     watch(FilmList, ()=>{

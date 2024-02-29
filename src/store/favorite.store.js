@@ -1,7 +1,7 @@
 import { defineStore } from "pinia"
-import { computed, ref } from "vue"
+import { ref } from "vue"
 
-export const useUserStore = defineStore('user',()=>{
+export const useFavoriteStore = defineStore('favorite',()=>{
     const filmFavorite = window.localStorage.getItem("filmfavorite")==null ? ref({}) : ref(JSON.parse(window.localStorage.getItem("filmfavorite")))
     const serieFavorite = window.localStorage.getItem("seriefavorite")==null ? ref({}) : ref(JSON.parse(window.localStorage.getItem("seriefavorite")))
     

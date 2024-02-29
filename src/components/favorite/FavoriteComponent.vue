@@ -1,19 +1,20 @@
 <script setup>
-    import { onMounted, ref, toRaw } from 'vue'
-    import { useUserStore } from '../../store/user.store'
+    import { onMounted, ref } from 'vue'
+    import { useFavoriteStore } from '../../store/favorite.store'
     import { useFilmStore } from '../../store/film.store'
     import { useSerieStore } from '../../store/serie.store'
     import { useLoginStore } from '../../store/login.store'
     import { useLoadingStore } from '../../store/loading.store'
     const loadingStore = useLoadingStore()
-    loadingStore.setLoading(false)
     const loginStore = useLoginStore()
-    const userStore = useUserStore()
+    const favoriteStore = useFavoriteStore()
     const filmStore = useFilmStore()
     const serieStore = useSerieStore()
+    const user = loginStore.getUser()
+    loadingStore.setLoading(false)
     onMounted(async ()=>{
-        FilmList.value = await filmStore.getFilm(loginStore.user.email,loginStore.user.password)
-        SerieList.value = await serieStore.getSerie(loginStore.user.email,loginStore.user.password)
+        FilmList.value = await filmStore.getFilm(user.email,user.password)
+        SerieList.value = await serieStore.getSerie(user.email,user.password)
     })
     let FilmList = ref()
     let SerieList = ref()
@@ -21,13 +22,13 @@
 <template>
     <h2>Mes films favoris</h2>
     <ul v-for="film in FilmList">   
-        <li v-if="userStore.filmFavorite[film.id]=='true'">
+        <li v-if="favoriteStore.filmFavorite[film.id]=='true'">
             <router-link :to="'/film/watch/'+film.id"> {{ film.nom }} </router-link>
         </li>
     </ul>
     <h2>Mes séries favorites</h2>
     <ul v-for="serie in SerieList">
-        <li v-if="userStore.serieFavorite[serie.id]=='true'">
+        <li v-if="favoriteStore.serieFavorite[serie.id]=='true'">
             <router-link :to="'/serie/watch/'+serie.id"> {{ serie.nom }} </router-link>
         </li>
     </ul>

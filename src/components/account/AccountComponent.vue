@@ -6,7 +6,8 @@
     const loadingStore = useLoadingStore()
     loadingStore.setLoading(false)
     const loginStore = useLoginStore()
-    const { signOut , user } = storeToRefs(loginStore) 
+    const user = loginStore.getUser()   
+    const { signOut } = storeToRefs(loginStore) 
     const SignOut = async () => {
         await loginStore.signOut()
         router.push({path:"/"})
@@ -15,7 +16,7 @@
 <template>
     <h3>Mes infos</h3>
     <ul>
-        <li>Email : {{ loginStore.user.email ? loginStore.user.email : "" }}</li>
+        <li>Email : {{ user.email ? user.email : "" }}</li>
     </ul>
     <button @click="SignOut()">Se deconnecter</button>
 </template>

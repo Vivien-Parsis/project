@@ -1,34 +1,30 @@
 <script setup>
     import { onMounted, ref, watch } from 'vue'  
-    import { filmService } from '../../services'
+    import { useRoute } from "vue-router"
+    import { useFilmStore } from '../../store/film.store'
     import { useLoginStore } from '../../store/login.store'
-    import {useRoute} from "vue-router"
+    import { useLoadingStore } from '../../store/loading.store'
+    const loadingStore = useLoadingStore()
     const loginStore = useLoginStore()
     const route = useRoute()
-    const getFilm = () => {
-        for(let film of FilmList.value){
-            if(film.id == route.params.id){
-                currentFilm.value = film
-                break
-            }
-        }
-    }
+    const filmStore = useFilmStore()
+    const user = loginStore.getUser()
     onMounted(async ()=>{
         console.log("📨 - recupérations du film...")
-        FilmList.value = await filmService.getFilm(loginStore.user.email,loginStore.user.password)
-        getFilm()
+        currentFilm.value = await filmStore.searchFilm(user.email,user.password, route.params.id)
     })
-    let FilmList = ref()
-    let currentFilm = ref()
+    const currentFilm = ref()
     watch(currentFilm, ()=>{
-        console.log("📩 - serie reçu")
+        console.log("📩 - film reçu")
+        loadingStore.setLoading(false)
     })
+
 </script>
 <template>
-    <div>
-        <h4 v-text="currentFilm ? currentFilm.nom : ''"></h4>
-        <iframe v-bind:src="currentFilm ? currentFilm.video : ''"></iframe>
-        <p v-text="currentFilm ? currentFilm.synospis : ''"></p>
+    <div v-if="currentFilm">
+        <h4 v-text="currentFilm.nom ? currentFilm.nom : ''"></h4>
+        <iframe v-bind:src="currentFilm.video ? currentFilm.video : ''"></iframe>
+        <p v-text="currentFilm.synospis ? currentFilm.synospis : ''"></p>
     </div>
 </template>
 <style scoped>

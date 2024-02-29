@@ -1,8 +1,8 @@
 import {  createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/home.vue'
 import Contact from '../pages/contact.vue'
-import Serie from '../pages/serie.vue'
 import Film from '../pages/film.vue'
+import Serie from '../pages/serie.vue'
 import FilmWatch from '../pages/filmWatch.vue'
 import SerieWatch from '../pages/serieWatch.vue'
 import SignIn from '../pages/signIn.vue'
@@ -11,10 +11,11 @@ import Account from '../pages/account.vue'
 import Favorite from '../pages/favorite.vue'
 import Error404 from '../pages/404error.vue'
 import { useLoginStore } from '../store/login.store'
+import { useLoadingStore } from '../store/loading.store'
 
 const routes = [
     {
-        path : "/", component : Home, meta:{authReq:false}
+        path : "/", component : Home, meta:{authReq:true}
     },{
         path : "/serie", component : Serie, meta:{authReq:true}
     },{
@@ -44,11 +45,14 @@ export const router = createRouter({
     routes, 
 })
 router.beforeEach((to, from)=>{
+    const loadingStore = useLoadingStore()
     const loginStore = useLoginStore()
+    const user = loginStore.getUser()
+    loadingStore.setLoading(true)
     if(to.meta.authReq){
-        loginStore.signIn(loginStore.user.email,loginStore.user.password)
+        loginStore.signIn(user.email,user.password)
     }
-    if(to.path!=="/signin" && to.meta.authReq && !loginStore.user.email && !loginStore.user.password){
+    if(to.path!=="/signin" && to.meta.authReq && !user.email && !user.password){
         return "/signin"
     }
 })

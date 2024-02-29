@@ -1,7 +1,6 @@
 <script setup>
     import { ref } from 'vue'
     import { messageService } from "../../services"
-    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import { useLoadingStore } from '../../store/loading.store'
     const loadingStore = useLoadingStore()
     loadingStore.setLoading(false)

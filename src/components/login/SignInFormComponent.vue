@@ -1,14 +1,18 @@
 <script setup>
     import { router } from '../../router';
     import { useLoginStore } from '../../store/login.store'
-    const loginStore = useLoginStore()
+    import { useLoadingStore } from '../../store/loading.store'
     import { toRaw } from 'vue'
     import { storeToRefs } from 'pinia'
-    const { signIn , user } = storeToRefs(loginStore) 
+    const loadingStore = useLoadingStore()
+    const loginStore = useLoginStore()
+    loadingStore.setLoading(false)
+    const { signIn } = storeToRefs(loginStore) 
+    const user = loginStore.getUser()
     const formSignIn = async (event) => {
         event.preventDefault()
         await loginStore.signIn(event.target.email.value, event.target.password.value)
-        if(toRaw(user.value.email)!=undefined && toRaw(user.value.password)!=undefined){
+        if(toRaw(user.email)!=undefined && toRaw(user.password)!=undefined){
             router.push({path:"/"})
         }
     } 

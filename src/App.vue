@@ -6,7 +6,7 @@
 </script>
 
 <template>
-    <LoadingComponent v-if="loadingStore.getLoading()"/>
+        <LoadingComponent v-if="loadingStore.getLoading()"/>
         <router-view v-slot="{ Component , route }"> 
             <Transition name="slide-fade" mode="out-in">
                 <div :key="route.path" @loading="unableLoading()">
@@ -19,11 +19,11 @@
 
 <style scoped>
     .slide-fade-enter-active {
-        transition: all 0.3s ease-out;
+        transition: all 0.5s ease-out;
     }
 
     .slide-fade-leave-active {
-        transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+        transition: all 1.0s cubic-bezier(1, 0.5, 0.8, 1);
     }
 
     .slide-fade-enter-from,
