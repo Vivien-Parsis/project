@@ -24,14 +24,17 @@
 section{
     background-color: rgb(206, 206, 206);
     border-radius: 1em;
-    margin:2%;
-    width:40%;
+    margin:1% .5% 1%;
+    width:48%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
+}
+section h3{
+    padding-top: 1em;
 }
 section h3, section p{
     margin:0

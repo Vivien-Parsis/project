@@ -5,6 +5,7 @@
     import { useSerieStore } from '../../store/serie.store'
     import { useLoginStore } from '../../store/login.store'
     import { useLoadingStore } from '../../store/loading.store'
+    import favoriteSection from './favoriteSectionComponent.vue'
     const loadingStore = useLoadingStore()
     const loginStore = useLoginStore()
     const favoriteStore = useFavoriteStore()
@@ -20,18 +21,12 @@
     let SerieList = ref()
 </script>
 <template>
-    <h2>Mes films favoris</h2>
-    <ul v-for="film in FilmList">   
-        <li v-if="favoriteStore.filmFavorite[film.id]=='true'">
-            <router-link :to="'/film/watch/'+film.id"> {{ film.nom }} </router-link>
-        </li>
-    </ul>
-    <h2>Mes séries favorites</h2>
-    <ul v-for="serie in SerieList">
-        <li v-if="favoriteStore.serieFavorite[serie.id]=='true'">
-            <router-link :to="'/serie/watch/'+serie.id"> {{ serie.nom }} </router-link>
-        </li>
-    </ul>
+    <section v-if="FilmList">
+        <favoriteSection title="Mes films favoris" :info="FilmList" type="film"/>
+    </section>
+    <section v-if="SerieList">
+        <favoriteSection title="Mes séries favorites" :info="SerieList" type="serie"/>
+    </section>
 </template>
 <style scoped>
     a{
