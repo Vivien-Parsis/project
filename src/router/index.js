@@ -17,25 +17,25 @@ const routes = [
     {
         path : "/", component : Home, meta:{authReq:true}
     },{
-        path : "/serie", component : Serie, meta:{authReq:true}
+        path : "/serie", component : Serie, meta:{authReq:true, title:"Serie"}
     },{
-        path : "/film", component : Film, meta:{authReq:true}
+        path : "/film", component : Film, meta:{authReq:true, title:"Film"}
     },{
-        path : "/contact", component : Contact, meta:{authReq:false}
+        path : "/contact", component : Contact, meta:{authReq:false, title:"Contact"}
     },{
         path : "/film/watch/:id", component : FilmWatch, params:true, meta:{authReq:true}
     },{
         path : "/serie/watch/:id", component : SerieWatch, params:true, meta:{authReq:true}
     },{
-        path : "/signin", component : SignIn, meta:{authReq:false}
+        path : "/signin", component : SignIn, meta:{authReq:false, title:"Sign In"}
     },{
-        path : "/signup", component : SignUp, meta:{authReq:false}
+        path : "/signup", component : SignUp, meta:{authReq:false, title:"Sign Up"}
     },{
-        path : "/favori", component : Favorite, meta:{authReq:true}
+        path : "/favori", component : Favorite, meta:{authReq:true, title:"Favori"}
     },{
-        path : "/account", component : Account, meta:{authReq:true}
+        path : "/account", component : Account, meta:{authReq:true, title:"Compte"}
     },{
-        path : "/:pathMatch(.*)*", component : Error404, meta:{authReq:false} 
+        path : "/:pathMatch(.*)*", component : Error404, meta:{authReq:false, title:"Error"}
     }
 ]
 
@@ -48,6 +48,7 @@ router.beforeEach((to, from)=>{
     const loadingStore = useLoadingStore()
     const loginStore = useLoginStore()
     const user = loginStore.getUser()
+    document.title = to.meta.title ? `MediaStream plus - ${to.meta.title}` : "MediaStream plus"
     loadingStore.setLoading(true)
     if(to.meta.authReq){
         loginStore.signIn(user.email,user.password)

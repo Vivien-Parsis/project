@@ -1,29 +1,30 @@
 <script setup>
-    import HomeSectionLinkComponent from './HomeSectionLinkComponent.vue';
-    const { title, listlink } = defineProps({
+    import HomeSectionLinkComponent from './HomeSectionLinkComponent.vue'
+    import IconComponent from '../common/IconComponent.vue'
+    const { title, listlink, imgSrc } = defineProps({
         title:String,
-        listlink:Array
+        listlink:Array,
+        imgSrc:String
     })
 </script>
 
 <template>
-    <h2 v-text="title"></h2>
+    <h3>
+        <IconComponent :imgSrc="imgSrc"/> 
+        {{ title }}
+    </h3>
     <li v-for="link in listlink">
         <HomeSectionLinkComponent :link="link.link">{{ link.name }}</HomeSectionLinkComponent>
     </li>
 </template>
 
 <style scoped>
-    div{
-        width: 100%;
+    h3{
         display: flex;
-        justify-content: center;
         align-items: center;
-        align-content: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
-    div p{
-        width: 98%;
-        text-align: justify;
+    li{
+        list-style:"> ";
     }
 </style>

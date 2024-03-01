@@ -1,19 +1,19 @@
 <script setup>
-    import HeaderComponent from '../components/HeaderComponent.vue'
-    import NavComponent from '../components/NavComponent.vue'
+    import HeaderComponent from '../components/common/HeaderComponent.vue'
+    import NavComponent from '../components/common/NavComponent.vue'
     import FilmList from '../components/film/FilmComponent.vue'
-    import FooterComponent from '../components/FooterComponent.vue'
+    import FooterComponent from '../components/common/FooterComponent.vue'
 </script>
 <template>
     <HeaderComponent>Film</HeaderComponent>
     <NavComponent/>
-    <div id="filmContainer">
+    <main>
         <FilmList/>
-    </div>
+    </main>
     <FooterComponent/>
 </template>
 <style scoped>
-#filmContainer{
+main{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

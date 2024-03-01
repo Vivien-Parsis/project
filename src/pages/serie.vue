@@ -1,19 +1,19 @@
 <script setup>
-    import HeaderComponent from '../components/HeaderComponent.vue'
-    import NavComponent from '../components/NavComponent.vue'
+    import HeaderComponent from '../components/common/HeaderComponent.vue'
+    import NavComponent from '../components/common/NavComponent.vue'
     import SerieList from '../components/serie/SerieComponent.vue'
-    import FooterComponent from '../components/FooterComponent.vue'
+    import FooterComponent from '../components/common/FooterComponent.vue'
 </script>
 <template>
     <HeaderComponent>Serie</HeaderComponent>
     <NavComponent/>
-    <div id="serieContainer">
+    <main>
         <SerieList/>
-    </div>
+    </main>
     <FooterComponent/>
 </template>
 <style scoped>
-#serieContainer{
+main{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

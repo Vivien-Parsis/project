@@ -21,15 +21,13 @@
     }
 </script>
 <template>
-    <div>
-        <form>
-            <h3>Contact us</h3>
-            <input type="email" placeholder="inserer email ici..." v-model="formValue.email" required>
-            <textarea placeholder="inserer message ici..." v-model="formValue.message" required></textarea>
-            <input type="button" value="envoyez" @click="envoyeContact()"> 
-            <span v-text="errorMessage"></span>
-        </form>
-    </div>
+    <form>
+        <h3>Contact us</h3>
+        <input type="email" placeholder="inserer email ici..." v-model="formValue.email" required>
+        <textarea placeholder="inserer message ici..." v-model="formValue.message" required></textarea>
+        <input type="button" value="envoyez" @click="envoyeContact()"> 
+        <span v-text="errorMessage"></span>
+    </form>
 </template>
 <style scoped>
     form{

@@ -1,5 +1,5 @@
 <script setup>
-    import LoadingComponent from './components/LoadingComponent.vue';
+    import LoadingComponent from './components/common/LoadingComponent.vue';
     import { ref } from 'vue'
     import { useLoadingStore } from './store/loading.store'
     const loadingStore = useLoadingStore()

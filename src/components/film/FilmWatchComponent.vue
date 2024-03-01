@@ -16,19 +16,20 @@
     const currentFilm = ref()
     watch(currentFilm, ()=>{
         console.log("📩 - film reçu")
+        document.title = `MediaStream plus - ${currentFilm.value.nom}`
         loadingStore.setLoading(false)
     })
 
 </script>
 <template>
-    <div v-if="currentFilm">
+    <section v-if="currentFilm">
         <h4 v-text="currentFilm.nom ? currentFilm.nom : ''"></h4>
         <iframe v-bind:src="currentFilm.video ? currentFilm.video : ''"></iframe>
         <p v-text="currentFilm.synospis ? currentFilm.synospis : ''"></p>
-    </div>
+    </section>
 </template>
 <style scoped>
-    div{
+    section{
         background-color: rgb(206, 206, 206);
         border-radius: 1em;
         margin:2%;
@@ -40,17 +41,17 @@
         align-items: center;
         align-content: center;
     }
-    div h4{
+    section h4{
         width: 100%;
     }
-    div p{
+    section p{
         width: 80%;
         text-align: center;
     }
-    div h4{
+    section h4{
         text-align: center;
     }
-    div iframe{
+    section iframe{
         width: 90%;
         aspect-ratio:16/9;
     }

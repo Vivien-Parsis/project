@@ -1,8 +1,8 @@
 <script setup>
-    import HeaderComponent from '../components/HeaderComponent.vue'
-    import NavComponent from '../components/NavComponent.vue'
+    import HeaderComponent from '../components/common/HeaderComponent.vue'
+    import NavComponent from '../components/common/NavComponent.vue'
     import HomeMainComponent from '../components/home/HomeComponent.vue'
-    import FooterComponent from '../components/FooterComponent.vue'
+    import FooterComponent from '../components/common/FooterComponent.vue'
 </script>
 <template>
     <HeaderComponent>Home</HeaderComponent>

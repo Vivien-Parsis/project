@@ -8,7 +8,7 @@
     })
 </script>
 <template>
-    <div v-for="film in ListFilm">
+    <section v-for="film in ListFilm">
         <h3 v-text="film.nom"></h3>
         <iframe v-bind:src="film.video"></iframe>
         <p v-text="film.synospis"></p>
@@ -16,10 +16,10 @@
         <button class="favButton" @click="favoriteStore.switchFavoriteFilm(film.id)">
             <img src="../../assets/img/unfav.svg"> 
         </button>
-    </div>
+    </section>
 </template>
 <style scoped>
-div{
+section{
     background-color: rgb(206, 206, 206);
     border-radius: 1em;
     margin:2%;
@@ -31,24 +31,24 @@ div{
     align-items: center;
     align-content: center;
 }
-div h3, div p{
+section h3, section p{
     margin:0
 }
-div *:not(div){
+section *:not(section){
     margin:0 0 1em
 }
-div p{
+section p{
     text-align: center;
     width: 90%;
 }
-div a{
+section a{
     text-decoration: none;
     color:black;
 }
-div a:hover{
+section a:hover{
     color:red
 }
-div iframe{
+section iframe{
     width: 90%;
     aspect-ratio:16/9;
 }

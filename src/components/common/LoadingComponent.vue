@@ -1,9 +1,8 @@
 <script setup>
-
 </script>
 <template>
     <div>
-        <img src="../assets/img/loading.gif">
+        <img src="../../assets/img/loading.gif">
     </div>
 </template>
 <style scoped>

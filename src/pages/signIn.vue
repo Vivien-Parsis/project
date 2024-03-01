@@ -1,8 +1,8 @@
 <script setup>
     import signInFormComponent from '../components/login/SignInFormComponent.vue'
-    import NavComponent from '../components/NavComponent.vue'
-    import HeaderComponent from '../components/HeaderComponent.vue'
-    import FooterComponent from '../components/FooterComponent.vue'
+    import NavComponent from '../components/common/NavComponent.vue'
+    import HeaderComponent from '../components/common/HeaderComponent.vue'
+    import FooterComponent from '../components/common/FooterComponent.vue'
 </script>
 <template>
     <HeaderComponent>Connexion</HeaderComponent>
