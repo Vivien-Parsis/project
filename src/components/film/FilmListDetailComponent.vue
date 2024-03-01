@@ -1,6 +1,8 @@
 <script setup>
     import { useFavoriteStore } from '../../store/favorite.store'
     import { storeToRefs } from 'pinia'
+    import fav from '../../assets/img/fav.svg?url'
+    import unfav from '../../assets/img/unfav.svg?url'
     const favoriteStore = useFavoriteStore()
     const { switchFavoriteFilm, filmFavorite} = storeToRefs(favoriteStore)
     const {ListFilm} = defineProps({
@@ -14,7 +16,7 @@
         <p v-text="film.synospis"></p>
         <router-link v-bind:to="'/film/watch/'+film.id">Regarder</router-link>
         <button class="favButton" @click="favoriteStore.switchFavoriteFilm(film.id)">
-            <img src="../../assets/img/unfav.svg"> 
+            <img :src="filmFavorite[film.id]=='true' ? fav : unfav"> 
         </button>
     </section>
 </template>
