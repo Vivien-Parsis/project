@@ -23,7 +23,7 @@
         display: flex;
         margin: 0;
         padding: .5em;
-        background-color: rgb(216, 216, 216);
+        background-color: rgb(199, 250, 233);
         align-items: center;
         flex-wrap: nowrap;
     }

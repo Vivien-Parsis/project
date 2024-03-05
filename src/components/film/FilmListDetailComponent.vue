@@ -21,47 +21,61 @@
     </section>
 </template>
 <style scoped>
-section{
-    background-color: rgb(206, 206, 206);
-    border-radius: 1em;
-    margin:1% .5% 1%;
-    width:48%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-section h3{
-    padding-top: 1em;
-}
-section h3, section p{
-    margin:0
-}
-section *:not(section){
-    margin:0 0 1em
-}
-section p{
-    text-align: center;
-    width: 90%;
-}
-section a{
-    text-decoration: none;
-    color:black;
-}
-section a:hover{
-    color:red
-}
-section iframe{
-    width: 90%;
-    aspect-ratio:16/9;
-}
-.favButton{
-    background-color: rgba(0,0,0,0);
-    border:none;
-}
-.favButton img{
-    width: 2em;
-}
+    @media screen and (max-width: 600px) {
+        section{
+            width:99%;
+        }
+        iframe{
+            width: 98%;
+        }
+    }
+    @media screen and (min-width: 600px) {
+        section{
+            width:48%;
+        }
+        iframe{
+            width: 90%;
+        }
+    }
+    section{
+        background-color: rgb(206, 206, 206);
+        border-radius: 1em;
+        margin:1% .5% 1%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    section h3{
+        padding-top: 1em;
+    }
+    section h3, section p{
+        margin:0
+    }
+    section *:not(section){
+        margin:0 0 1em
+    }
+    section p{
+        text-align: center;
+        width: 90%;
+    }
+    section a{
+        text-decoration: none;
+        color:black;
+    }
+    section a:hover{
+        color:red
+    }
+    section iframe{
+        aspect-ratio:16/9;
+    }
+    .favButton{
+        background-color: rgba(0,0,0,0);
+        border:none;
+    }
+    .favButton img{
+        width: 2em;
+    }
 </style>

@@ -1,8 +1,15 @@
 <script setup>
+    import { computed } from 'vue'
+    const FooterLabel = computed({
+        get(){
+            const todayYear = new Date().getFullYear()
+            return `@VivienP ${todayYear ? "- "+todayYear : ""}`
+        }
+    })
 </script>
 <template>
     <footer>
-        @VivienP - {{ new Date().getFullYear() }}
+        {{ FooterLabel }}
     </footer>
 </template>
 
