@@ -4,6 +4,7 @@
     import { useFilmStore } from '../../store/film.store'
     import { useLoginStore } from '../../store/login.store'
     import { useLoadingStore } from '../../store/loading.store'
+    import { lighter_blue } from '../../const/color'
     const loadingStore = useLoadingStore()
     const loginStore = useLoginStore()
     const route = useRoute()
@@ -30,7 +31,7 @@
 </template>
 <style scoped>
     section{
-        background-color: rgb(206, 206, 206);
+        background-color: v-bind(lighter_blue);
         border-radius: 1em;
         margin:2%;
         width:80%;
