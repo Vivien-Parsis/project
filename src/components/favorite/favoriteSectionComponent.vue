@@ -2,17 +2,16 @@
     import { useFavoriteStore } from '../../store/favorite.store'
     import { ref } from 'vue'
     const favoriteStore = useFavoriteStore()
-    const { info, title, type } = defineProps({
-        info:Array,
+    const { mediaList, title, type } = defineProps({
+        mediaList:Object,
         title:String,
         type:String
     })
-    const favorite = ref(type == "serie" ? favoriteStore.serieFavorite : favoriteStore.filmFavorite)
-    console.log(favorite.value)
+    const favorite = ref(type == "serie" ? favoriteStore.serieFavorite : type == "film" ? favoriteStore.filmFavorite : [])
 </script>
 <template>
     <h2>{{ title }}</h2>
-    <ul v-for="item in info">   
+    <ul v-for="item in mediaList">   
         <li v-if="favorite[item.id]=='true'">
             <router-link :to="'/'+type+'/watch/'+item.id"> {{ item.nom }} </router-link>
         </li>

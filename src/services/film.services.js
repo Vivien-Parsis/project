@@ -10,4 +10,4 @@ export class filmService{
         const res = await axios.post(api_url+'/api/film/search?id='+id,{email:email,password:password})
         return res.data
     }
-} 
+}

@@ -7,6 +7,6 @@
 <template>
     <HeaderComponent>Contact</HeaderComponent>
     <NavComponent/>
-    <ContactForm @name="getInputName"/>
+    <ContactForm/>
     <FooterComponent/>
 </template>

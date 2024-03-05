@@ -2,7 +2,7 @@
 </script>
 <template>
     <footer>
-        @VivienP
+        @VivienP - {{ new Date().getFullYear() }}
     </footer>
 </template>
 

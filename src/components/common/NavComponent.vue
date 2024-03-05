@@ -1,19 +1,61 @@
 <template>
     <nav>
-        <router-link v-if="route.meta.authReq" to="/">home</router-link>
-        <router-link v-if="route.meta.authReq" to="/serie">serie</router-link>
-        <router-link v-if="route.meta.authReq" to="/film">film</router-link>
-        <router-link v-if="route.meta.authReq" to="/favori">favori</router-link>
-        <router-link v-if="route.meta.authReq" to="/account">mon compte</router-link>
-        <router-link v-if="!route.meta.authReq" to="/signin">Se connecter</router-link>
-        <router-link v-if="!route.meta.authReq" to="/signup">Créer un compte</router-link>
-        <router-link to="/contact">contact</router-link>
+        <NavLinkComponent v-for="link in navLinkList" :check="link.check" :cssClass="link.cssClass" :to="link.to" :name="link.name" />
     </nav>
-   
 </template>
 <script setup>
-    import { useRoute } from "vue-router"
+    import { useRouter, useRoute } from "vue-router"
+    import { ref } from "vue"
+    import NavLinkComponent from "./NavLinkComponent.vue"
+    const router = useRouter()
     const route = useRoute()
+    const routerListAuthReq = {}
+    for(let currentroute of router.getRoutes()){
+        routerListAuthReq[currentroute.path] = currentroute.meta.authReq
+    }
+    const navLinkList = ref([
+        {
+            check : routerListAuthReq['/'],
+            cssClass : route.path == '/' ? 'currenttab' : '',
+            to : "",
+            name : "home"
+        },{
+            check : routerListAuthReq['/serie'],
+            cssClass : route.path.includes('/serie') ? 'currenttab' : '',
+            to : "/serie",
+            name : "serie"
+        },{
+            check : routerListAuthReq['/film'],
+            cssClass : route.path.includes('/film') ? 'currenttab' : '',
+            to : "/film",
+            name : "film"
+        },{
+            check : routerListAuthReq['/favori'],
+            cssClass : route.path.includes('/favori') ? 'currenttab' : '',
+            to : "/favori",
+            name : "favori"
+        },{
+            check : routerListAuthReq['/account'],
+            cssClass : route.path.includes('/account') ? 'currenttab' : '',
+            to : "/account",
+            name : "mon compte"
+        },{
+            check : routerListAuthReq['/signin'],
+            cssClass : route.path.includes('/signin') ? 'currenttab' : '',
+            to : "/signin",
+            name : "se connecter"
+        },{
+            check : routerListAuthReq['/signup'],
+            cssClass : route.path.includes('/signup') ? 'currenttab' : '',
+            to : "/signup",
+            name : "créer un compte"
+        },{
+            check : true,
+            cssClass : route.path.includes('/contact') ? 'currenttab' : '',
+            to : "/contact",
+            name : "contact"
+        },
+    ])
 </script>
 <style scoped>
     nav{
@@ -32,6 +74,10 @@
         color: black;
     }
     nav a:hover{
-        color: red;
+        color: rgb(255, 130, 130);
+    }
+    .currenttab{
+        color: rgb(128, 9, 9);
+        text-decoration: underline;
     }
 </style>

@@ -21,10 +21,15 @@
 <style scoped>
     h3{
         display: flex;
+        margin: 0;
+        padding: .5em;
+        background-color: rgb(216, 216, 216);
         align-items: center;
         flex-wrap: nowrap;
     }
     li{
-        list-style:"> ";
+        background-color: rgb(211, 252, 238);
+        padding:.5em ;
+        list-style:none;
     }
 </style>

@@ -74,7 +74,8 @@
         text-align: justify;
     }
     section{
-        width:99%;
+        border-top: 1px solid black;
+        width:100%;
     }
     h2{
         text-transform: uppercase;

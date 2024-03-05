@@ -9,7 +9,7 @@
   div{
     position: absolute;
     z-index: 1000;
-    background-color: rgb(197, 197, 197);
+    background-color: rgb(87, 87, 87);
     height: 100vh;
     width: 100vw;
     display: flex;
