@@ -17,7 +17,7 @@
         {
             check : routerListAuthReq['/'],
             cssClass : route.path == '/' ? 'currenttab' : '',
-            to : "",
+            to : "/",
             name : "home"
         },{
             check : routerListAuthReq['/serie'],
