@@ -1,5 +1,6 @@
 <script setup>
     import { computed } from 'vue'
+    import { sky_blue } from "../../const/color"
     const FooterLabel = computed({
         get(){
             const todayYear = new Date().getFullYear()
@@ -15,7 +16,7 @@
 
 <style scoped>
     footer{
-        background-color: aquamarine;
+        background-color: v-bind(sky_blue);
         position: fixed;
         width: 100%;
         padding: 0.5em 0;

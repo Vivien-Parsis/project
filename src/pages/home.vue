@@ -5,7 +5,7 @@
     import FooterComponent from '../components/common/FooterComponent.vue'
 </script>
 <template>
-    <HeaderComponent>Home</HeaderComponent>
+    <HeaderComponent>MediaStream plus</HeaderComponent>
     <NavComponent/>
     <HomeMainComponent/>
     <FooterComponent/>

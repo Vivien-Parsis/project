@@ -4,6 +4,7 @@
     import { useLoadingStore } from '../../store/loading.store'
     import newIcon from '../../assets/img/new.svg?url'
     import popIcon from '../../assets/img/star.svg?url'
+    import { black } from '../../const/color'
     const loadingStore = useLoadingStore()
     loadingStore.setLoading(false)
     const ListMainSection = ref([
@@ -53,7 +54,6 @@
 
 <template>
     <main>
-        <h2>MediaStream plus</h2>
         <section v-for="MainSection in ListMainSection">
             <HomeSectionComponent :title="MainSection.title" :listlink="MainSection.content" :imgSrc="MainSection.img"/>
         </section>
@@ -74,7 +74,7 @@
         text-align: justify;
     }
     section{
-        border-top: 1px solid black;
+        border-top: 1px solid v-bind(black);
         width:100%;
     }
     h2{

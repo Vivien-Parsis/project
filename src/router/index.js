@@ -50,10 +50,14 @@ router.beforeEach((to, from)=>{
     const user = loginStore.getUser()
     document.title = to.meta.title ? `MediaStream plus - ${to.meta.title}` : "MediaStream plus"
     loadingStore.setLoading(true)
-    if(to.meta.authReq){
+    if(to.meta.authReq && loginStore.isSign()){
         loginStore.signIn(user.email,user.password)
     }
-    if(to.path!=="/signin" && to.meta.authReq && !user.email && !user.password){
+    console.log()
+    if(!to.path.includes("/signin") && to.meta.authReq && !loginStore.isSign()){
         return "/signin"
+    }
+    if((to.path.includes("/signin") || to.path.includes("/signup")) && loginStore.isSign()){
+        return from.path
     }
 })

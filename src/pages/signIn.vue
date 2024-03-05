@@ -3,6 +3,7 @@
     import NavComponent from '../components/common/NavComponent.vue'
     import HeaderComponent from '../components/common/HeaderComponent.vue'
     import FooterComponent from '../components/common/FooterComponent.vue'
+    import { black } from '../const/color'
 </script>
 <template>
     <HeaderComponent>Connexion</HeaderComponent>
@@ -19,7 +20,7 @@
         text-align: center;
     }
     .SignLink{
-        color:black;
+        color:v-bind(black);
         text-decoration: none;
     }
     .SignLink:hover{

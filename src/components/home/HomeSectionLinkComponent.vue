@@ -1,4 +1,5 @@
 <script setup>
+    import { black, orange } from '../../const/color'
     const {link} = defineProps({
         link:String
     })
@@ -12,10 +13,10 @@
 </template>
 <style scoped>
     a{
-        color:black;
+        color:v-bind(black);
         text-decoration: none;
     }
     a:hover{
-        color:aquamarine;
+        color:v-bind(orange);
     }
 </style>

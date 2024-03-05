@@ -1,4 +1,5 @@
 <script setup>
+  import { black } from '../../const/color';
 </script>
 <template>
     <div>
@@ -9,7 +10,7 @@
   div{
     position: absolute;
     z-index: 1000;
-    background-color: rgb(87, 87, 87);
+    background-color: v-bind(black);
     height: 100vh;
     width: 100vw;
     display: flex;

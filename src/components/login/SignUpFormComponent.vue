@@ -5,8 +5,6 @@
     const loadingStore = useLoadingStore()
     const loginStore = useLoginStore()
     loadingStore.setLoading(false)
-    import { storeToRefs } from 'pinia'
-    const { signUp } = storeToRefs(loginStore) 
     const formSignUp = async (event) => {
         event.preventDefault()
         await loginStore.signUp(event.target.email.value, event.target.password.value)

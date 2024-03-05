@@ -5,7 +5,7 @@
     import FooterComponent from '../components/common/FooterComponent.vue'
 </script>
 <template>
-    <HeaderComponent>Contact</HeaderComponent>
+    <HeaderComponent>Mon compte</HeaderComponent>
     <NavComponent/>
     <AccountComponent/>
     <FooterComponent/>

@@ -6,7 +6,10 @@
 <script setup>
     import { useRouter, useRoute } from "vue-router"
     import { ref } from "vue"
+    import { useLoginStore } from "../../store/login.store"
     import NavLinkComponent from "./NavLinkComponent.vue"
+    import { light_blue, black, orange, red } from '../../const/color'
+    const loginStore = useLoginStore()
     const router = useRouter()
     const route = useRoute()
     const routerListAuthReq = {}
@@ -15,37 +18,37 @@
     }
     const navLinkList = ref([
         {
-            check : routerListAuthReq['/'],
+            check : loginStore.isSign(),
             cssClass : route.path == '/' ? 'currenttab' : '',
             to : "/",
             name : "home"
         },{
-            check : routerListAuthReq['/serie'],
+            check : loginStore.isSign(),
             cssClass : route.path.includes('/serie') ? 'currenttab' : '',
             to : "/serie",
             name : "serie"
         },{
-            check : routerListAuthReq['/film'],
+            check : loginStore.isSign(),
             cssClass : route.path.includes('/film') ? 'currenttab' : '',
             to : "/film",
             name : "film"
         },{
-            check : routerListAuthReq['/favori'],
+            check : loginStore.isSign(),
             cssClass : route.path.includes('/favori') ? 'currenttab' : '',
             to : "/favori",
             name : "favori"
         },{
-            check : routerListAuthReq['/account'],
+            check : loginStore.isSign(),
             cssClass : route.path.includes('/account') ? 'currenttab' : '',
             to : "/account",
             name : "mon compte"
         },{
-            check : routerListAuthReq['/signin'],
+            check : !loginStore.isSign(),
             cssClass : route.path.includes('/signin') ? 'currenttab' : '',
             to : "/signin",
             name : "se connecter"
         },{
-            check : routerListAuthReq['/signup'],
+            check : !loginStore.isSign(),
             cssClass : route.path.includes('/signup') ? 'currenttab' : '',
             to : "/signup",
             name : "créer un compte"
@@ -61,8 +64,8 @@
     nav{
         width: 100%;
         padding:.4em 0;
-        background-color: rgb(210, 210, 210);
-        border-bottom: 1px solid black;
+        background-color: v-bind(light_blue);
+        border-bottom: 1px solid v-bind(black);
         display: flex;
         flex-wrap: wrap;
         align-content: center;
@@ -71,13 +74,13 @@
     }
     nav a{
         text-decoration: none;
-        color: black;
+        color:v-bind(black)
     }
     nav a:hover{
-        color: rgb(255, 130, 130);
+        color: v-bind(orange);
     }
     .currenttab{
-        color: rgb(128, 9, 9);
+        color: v-bind(red);
         text-decoration: underline;
     }
 </style>

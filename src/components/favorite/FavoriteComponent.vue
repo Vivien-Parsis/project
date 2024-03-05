@@ -5,6 +5,7 @@
     import { useLoginStore } from '../../store/login.store'
     import { useLoadingStore } from '../../store/loading.store'
     import favoriteSection from './favoriteSectionComponent.vue'
+    import { black } from '../../const/color'
     const loadingStore = useLoadingStore()
     const loginStore = useLoginStore()
     const filmStore = useFilmStore()
@@ -34,7 +35,7 @@
 </template>
 <style scoped>
     a{
-        color: black;
+        color: v-bind(black);
         text-decoration: none;
     }
     a:hover{

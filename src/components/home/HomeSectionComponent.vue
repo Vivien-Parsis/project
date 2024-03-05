@@ -1,6 +1,7 @@
 <script setup>
     import HomeSectionLinkComponent from './HomeSectionLinkComponent.vue'
     import IconComponent from '../common/IconComponent.vue'
+    import { light_blue, lighter_blue } from '../../const/color'
     const { title, listlink, imgSrc } = defineProps({
         title:String,
         listlink:Array,
@@ -10,7 +11,7 @@
 
 <template>
     <h3>
-        <IconComponent :imgSrc="imgSrc"/> 
+        <IconComponent v-if="imgSrc":imgSrc="imgSrc"/> 
         {{ title }}
     </h3>
     <li v-for="link in listlink">
@@ -22,13 +23,13 @@
     h3{
         display: flex;
         margin: 0;
-        padding: .5em;
-        background-color: rgb(199, 250, 233);
+        padding:0.5em;
+        background-color: v-bind(light_blue);
         align-items: center;
         flex-wrap: nowrap;
     }
     li{
-        background-color: rgb(211, 252, 238);
+        background-color: v-bind(lighter_blue);
         padding:.5em ;
         list-style:none;
     }

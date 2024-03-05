@@ -3,6 +3,7 @@
     import { storeToRefs } from 'pinia'
     import fav from '../../assets/img/fav.svg?url'
     import unfav from '../../assets/img/unfav.svg?url'
+    import { lighter_blue, black, orange } from '../../const/color'
     const favoriteStore = useFavoriteStore()
     const { switchFavoriteSerie, serieFavorite} = storeToRefs(favoriteStore)
     const {ListSerie} = defineProps({
@@ -38,7 +39,7 @@
         }
     }
     section{
-        background-color: rgb(206, 206, 206);
+        background-color: v-bind(lighter_blue);
         border-radius: 1em;
         margin:1% .5% 1%;
         display: flex;
@@ -63,10 +64,10 @@
     }
     section a{
         text-decoration: none;
-        color:black;
+        color:v-bind(black);
     }
     section a:hover{
-        color:red
+        color:v-bind(orange);
     }
     section iframe{
         aspect-ratio:16/9;

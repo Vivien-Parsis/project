@@ -2,6 +2,7 @@
     import LoadingComponent from './components/common/LoadingComponent.vue';
     import { ref } from 'vue'
     import { useLoadingStore } from './store/loading.store'
+    import { black, sky_blue } from './const/color';
     const loadingStore = useLoadingStore()
 </script>
 
@@ -18,6 +19,9 @@
 </template>  
 
 <style scoped>
+    *{
+        color:v-bind(black);
+    }
     .slide-fade-enter-active {
         transition: all 0.5s ease-out;
     }
