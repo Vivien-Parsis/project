@@ -1,4 +1,4 @@
-# Simple media website in Vuejs and Vite
+# MediaStream plus - a simple media website in Vuejs and Vite
 Site pour parcourir une liste de differents media
 
 ## Fonctionnalité principales
@@ -22,7 +22,7 @@ Site pour parcourir une liste de differents media
 
 - cloner le dépot : `git clone https://github.com/Vivien-Parsis/vue-project && cd vue-project`
 - build l'image : `docker build -t vite_app .`
-- lancer l'image : `sudo docker run -p 8000:8000 --name vite_app vite_app`
+- lancer l'image : `docker run -p 8000:8000 --name vite_app vite_app`
 
 ## Adresse
 
