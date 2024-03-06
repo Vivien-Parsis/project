@@ -1,6 +1,6 @@
 <script setup>
     import { onMounted, ref, watch } from 'vue'
-    import FilmListDetailComponent from './FilmListDetailComponent.vue'
+    import FilmListComponent from './FilmListComponent.vue'
     import { useLoginStore } from '../../store/login.store'
     import { useFilmStore } from '../../store/film.store'
     import { useLoadingStore } from '../../store/loading.store'
@@ -20,7 +20,7 @@
     
 </script>
 <template>
-    <FilmListDetailComponent v-bind:ListFilm="FilmList ? FilmList : []"/>
+    <FilmListComponent :ListFilm="FilmList ? FilmList : []"/>
 </template>
 <style scoped>
 </style>

@@ -1,5 +1,5 @@
 <script setup>
-    import { black, orange } from '../../const/color'
+    import { black, orange } from '../../const/style'
     const {link} = defineProps({
         link:String
     })

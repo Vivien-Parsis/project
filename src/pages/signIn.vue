@@ -3,7 +3,7 @@
     import NavComponent from '../components/common/NavComponent.vue'
     import HeaderComponent from '../components/common/HeaderComponent.vue'
     import FooterComponent from '../components/common/FooterComponent.vue'
-    import { black } from '../const/color'
+    import { black } from '../const/style'
 </script>
 <template>
     <HeaderComponent>Connexion</HeaderComponent>

@@ -53,7 +53,6 @@ router.beforeEach((to, from)=>{
     if(to.meta.authReq && loginStore.isSign()){
         loginStore.signIn(user.email,user.password)
     }
-    console.log()
     if(!to.path.includes("/signin") && to.meta.authReq && !loginStore.isSign()){
         return "/signin"
     }

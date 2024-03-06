@@ -1,6 +1,10 @@
 <template>
     <nav>
-        <NavLinkComponent v-for="link in navLinkList" :check="link.check" :cssClass="link.cssClass" :to="link.to" :name="link.name" />
+        <img :src="navButton" v-if="isMobile" @click="toggleNav()">
+        <div v-show="showNav">
+            <img :src="navButton" v-if="isMobile" @click="toggleNav()">
+            <NavLinkComponent v-for="link in navLinkList" :check="link.check" :cssClass="link.cssClass" :to="link.to" :name="link.name" />
+        </div>
     </nav>
 </template>
 <script setup>
@@ -8,14 +12,17 @@
     import { ref } from "vue"
     import { useLoginStore } from "../../store/login.store"
     import NavLinkComponent from "./NavLinkComponent.vue"
-    import { light_blue, black, orange, red } from '../../const/color'
+    import navButton from "../../assets/img/nav.svg?url"
+    import { light_blue, black, orange, red, isMobile } from '../../const/style'
     const loginStore = useLoginStore()
     const router = useRouter()
     const route = useRoute()
-    const routerListAuthReq = {}
-    for(let currentroute of router.getRoutes()){
-        routerListAuthReq[currentroute.path] = currentroute.meta.authReq
-    }
+    const showNav = ref(isMobile ? false : true)
+    const toggleNav = () => {showNav.value = !showNav.value} 
+    // const routerListAuthReq = {}
+    // for(let currentroute of router.getRoutes()){
+    //     routerListAuthReq[currentroute.path] = currentroute.meta.authReq
+    // }
     const navLinkList = ref([
         {
             check : loginStore.isSign(),
@@ -61,16 +68,37 @@
     ])
 </script>
 <style scoped>
+    @media screen and (max-width:600px) {
+        nav div{
+            top:0;
+            flex-direction: column;
+            height: 100%;
+            position: fixed;
+            background: grey;
+            z-index: 99;
+            font-size: 3em;
+            background-color: v-bind(light_blue);
+        }
+    }
     nav{
-        width: 100%;
-        padding:.4em 0;
         background-color: v-bind(light_blue);
+        padding:.4em 0;
         border-bottom: 1px solid v-bind(black);
+    }
+    nav div{
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         align-content: center;
         justify-content: space-evenly;
         align-items: center;
+    }nav div img{
+        width: 1em;
+        margin-right:calc(100% - 1em)
+    }
+    nav img{
+        width: 3em;
+        margin-right: calc(100% - 3em - 1em);
     }
     nav a{
         text-decoration: none;

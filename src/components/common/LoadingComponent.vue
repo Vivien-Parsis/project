@@ -1,5 +1,5 @@
 <script setup>
-  import { black } from '../../const/color';
+  import { black } from '../../const/style';
 </script>
 <template>
     <div>

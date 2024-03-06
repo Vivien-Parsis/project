@@ -3,73 +3,54 @@
     import { storeToRefs } from 'pinia'
     import fav from '../../assets/img/fav.svg?url'
     import unfav from '../../assets/img/unfav.svg?url'
-    import { lighter_blue, black, orange } from '../../const/color'
+    import { black, orange } from '../../const/style'
     const favoriteStore = useFavoriteStore()
     const { switchFavoriteFilm, filmFavorite} = storeToRefs(favoriteStore)
-    const {ListFilm} = defineProps({
-        ListFilm:Array
+    const {film} = defineProps({
+        film:Object
     })
 </script>
 <template>
-    <section v-for="film in ListFilm">
-        <h3 v-text="film.nom"></h3>
-        <iframe v-bind:src="film.video"></iframe>
-        <p v-text="film.synospis"></p>
-        <router-link v-bind:to="'/film/watch/'+film.id">Regarder</router-link>
-        <button class="favButton" @click="favoriteStore.switchFavoriteFilm(film.id)">
-            <img :src="filmFavorite[film.id]=='true' ? fav : unfav"> 
-        </button>
-    </section>
+    <h3 v-text="film.nom"></h3>
+    <iframe v-bind:src="film.video"></iframe>
+    <p v-text="film.synospis"></p>
+    <router-link v-bind:to="'/film/watch/'+film.id">Regarder</router-link>
+    <button class="favButton" @click="favoriteStore.switchFavoriteFilm(film.id)">
+        <img :src="filmFavorite[film.id]=='true' ? fav : unfav"> 
+    </button>
 </template>
 <style scoped>
     @media screen and (max-width: 600px) {
-        section{
-            width:99%;
-        }
         iframe{
             width: 98%;
         }
     }
     @media screen and (min-width: 600px) {
-        section{
-            width:48%;
-        }
         iframe{
             width: 90%;
         }
     }
-    section{
-        background-color: v-bind(lighter_blue);
-        border-radius: 1em;
-        margin:1% .5% 1%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-    }
-    section h3{
+    h3{
         padding-top: 1em;
     }
-    section h3, section p{
+    h3, p{
         margin:0
     }
-    section *:not(section){
+    *:not(section){
         margin:0 0 1em
     }
-    section p{
+    p{
         text-align: center;
         width: 90%;
     }
-    section a{
+    a{
         text-decoration: none;
         color:v-bind(black);
     }
-    section a:hover{
+    a:hover{
         color:v-bind(orange);
     }
-    section iframe{
+    iframe{
         aspect-ratio:16/9;
     }
     .favButton{

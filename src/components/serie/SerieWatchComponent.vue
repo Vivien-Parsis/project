@@ -4,7 +4,7 @@
     import { useSerieStore } from '../../store/serie.store'
     import { useLoginStore } from '../../store/login.store'
     import { useLoadingStore } from '../../store/loading.store'
-    import { lighter_blue } from '../../const/color'
+    import { lighter_blue } from '../../const/style'
     const loadingStore = useLoadingStore()
     const loginStore = useLoginStore()
     const serieStore = useSerieStore()

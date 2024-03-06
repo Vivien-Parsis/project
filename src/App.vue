@@ -2,7 +2,7 @@
     import LoadingComponent from './components/common/LoadingComponent.vue';
     import { ref } from 'vue'
     import { useLoadingStore } from './store/loading.store'
-    import { black, sky_blue } from './const/color';
+    import { black, sky_blue } from './const/style';
     const loadingStore = useLoadingStore()
 </script>
 

@@ -1,6 +1,6 @@
 <script setup>
     import { onMounted, ref, watch } from 'vue'
-    import SerieListDetailComponent from './SerieListDetailComponent.vue'
+    import SerieListComponent from './SerieListComponent.vue'
     import { useSerieStore } from '../../store/serie.store'
     import { useLoginStore } from '../../store/login.store'
     import { useLoadingStore } from '../../store/loading.store'
@@ -20,7 +20,7 @@
     
 </script>
 <template>
-    <SerieListDetailComponent v-bind:ListSerie="SerieList ? SerieList : []"/>
+    <SerieListComponent :ListSerie="SerieList ? SerieList : []"/>
 </template>
 <style scoped>
 </style>

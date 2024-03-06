@@ -4,7 +4,7 @@
     import { useLoadingStore } from '../../store/loading.store'
     import newIcon from '../../assets/img/new.svg?url'
     import popIcon from '../../assets/img/star.svg?url'
-    import { black } from '../../const/color'
+    import { black } from '../../const/style'
     const loadingStore = useLoadingStore()
     loadingStore.setLoading(false)
     const ListMainSection = ref([

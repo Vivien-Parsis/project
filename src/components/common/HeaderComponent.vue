@@ -1,8 +1,9 @@
 <script setup>
     import logo from "../../assets/img/logo.svg?url"
-    import { sky_blue } from "../../const/color"
+    import { sky_blue, isMobile } from "../../const/style"
     import { useLoginStore } from "../../store/login.store"
     const loginStore = useLoginStore()
+    const marginRightOfTitle = isMobile ? "50%" : "calc(50% + 1.5em + 1em)"
 </script>
 <template>
     <header>
@@ -40,7 +41,7 @@
     }
     header h1{
         text-align: center;
-        margin-right: calc(50% + 1.5em + 1em);
+        margin-right:v-bind(marginRightOfTitle);
         margin-left: 50%;
     }
     header a, header a img{

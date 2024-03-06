@@ -1,7 +1,7 @@
 <script setup>
     import { useFavoriteStore } from '../../store/favorite.store'
     import { ref } from 'vue'
-    import { light_blue, lighter_blue, black, orange} from '../../const/color'
+    import { light_blue, lighter_blue, black, orange} from '../../const/style'
     const favoriteStore = useFavoriteStore()
     const { mediaList, title, type } = defineProps({
         mediaList:Object,

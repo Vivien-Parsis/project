@@ -1,6 +1,6 @@
 <script setup>
     import { computed } from 'vue'
-    import { sky_blue } from "../../const/color"
+    import { sky_blue } from "../../const/style"
     const FooterLabel = computed({
         get(){
             const todayYear = new Date().getFullYear()

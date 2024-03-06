@@ -1,7 +1,7 @@
 <script setup>
     import HomeSectionLinkComponent from './HomeSectionLinkComponent.vue'
     import IconComponent from '../common/IconComponent.vue'
-    import { light_blue, lighter_blue } from '../../const/color'
+    import { light_blue, lighter_blue } from '../../const/style'
     const { title, listlink, imgSrc } = defineProps({
         title:String,
         listlink:Array,
