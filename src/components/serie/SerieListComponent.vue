@@ -18,22 +18,28 @@
 </script>
 <template>
     <searchComponent @searchInput="getSearch"/>
-    <section v-for="serie in ListSerie">
-        <serieListDetailComponent :serie="serie" v-if="filter(serie.nom)"/>
-    </section>
+    <div class="serieList">
+        <section v-for="serie in ListSerie">
+            <serieListDetailComponent :serie="serie" v-if="filter(serie.nom)"/>
+        </section>
+    </div>
 </template>
 <style scoped>
-    @media screen and (max-width: 600px) {
-        section{
-            width:99%;
+    @media screen and (max-width:600px){
+        .serieList{
+            grid-template-columns: 100%;
         }
     }
-    @media screen and (min-width: 600px) {
-        section{
-            width:48%;
+    @media screen and (min-width:600px){
+        .serieList{
+            grid-template-columns: 50% 50%;
         }
+    }
+    .serieList{
+        display: grid;
     }
     section{
+        width:99%;
         background-color: v-bind(lighter_blue);
         border-radius: 1em;
         margin:1% .5% 1%;
