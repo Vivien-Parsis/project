@@ -1,45 +1,48 @@
 <script setup>
-    import { useFavoriteStore } from '../../store/favorite.store'
-    import searchComponent from "../common/searchComponent.vue"
+    import searchComponent from "../common/SearchComponent.vue"
     import { ref } from "vue"
-    import { lighter_blue, black, orange } from '../../const/style'
+    import { lighter_blue } from '../../const/style'
     import serieListDetailComponent from "./SerieListDetailComponent.vue"
-    const {ListSerie} = defineProps({
+    const props = defineProps({
         ListSerie:Array
     })
-    const search = ref("")
-    const getSearch = (value) => {
-        search.value = value
-        console.log("filtering...")
-    }
-    const filter = (nom) => {
-        return nom.toLowerCase().includes(search.value.trim())
+    const filteredList = ref(props.ListSerie)
+    const filter = (value) => {
+        filteredList.value = []
+        for(let serie of props.ListSerie){
+            if(serie.nom.toLowerCase().includes(value.trim().toLowerCase())){
+                filteredList.value.push(serie)
+            }
+        }
     }
 </script>
 <template>
-    <searchComponent @searchInput="getSearch"/>
+    <searchComponent @searchInput="filter" placeholder="Recherche serie ici..."/>
     <div class="serieList">
-        <section v-for="serie in ListSerie">
-            <serieListDetailComponent :serie="serie" v-if="filter(serie.nom)"/>
+        <section v-for="serie in filteredList">
+            <serieListDetailComponent :serie="serie"/>
         </section>
     </div>
 </template>
 <style scoped>
     @media screen and (max-width:600px){
-        .serieList{
-            grid-template-columns: 100%;
+        section{
+            width:98%;
         }
     }
     @media screen and (min-width:600px){
-        .serieList{
-            grid-template-columns: 50% 50%;
+        section{
+            width:48%;
         }
     }
     .serieList{
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        align-content: center;
+        justify-content: space-evenly;
     }
     section{
-        width:99%;
         background-color: v-bind(lighter_blue);
         border-radius: 1em;
         margin:1% .5% 1%;

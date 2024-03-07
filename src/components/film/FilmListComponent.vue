@@ -1,44 +1,47 @@
-<script setup>
+<script setup>import searchComponent from "../common/SearchComponent.vue"
     import { ref } from "vue"
-    import searchComponent from "../common/searchComponent.vue"
-    import { lighter_blue, black, orange } from '../../const/style'
+    import { lighter_blue } from '../../const/style'
     import filmListDetailComponent from "./FilmListDetailComponent.vue"
-    const {ListFilm} = defineProps({
+    const props = defineProps({
         ListFilm:Array
     })
-    const search = ref("")
-    const getSearch = (value) => {
-        search.value = value
-        console.log("filtering...")
-    }
-    const filter = (nom) => {
-        return nom.toLowerCase().includes(search.value.trim().toLowerCase())
+    const filteredList = ref(props.ListFilm)
+    const filter = (value) => {
+        filteredList.value = []
+        for(let film of props.ListFilm){
+            if(serie.nom.toLowerCase().includes(value.trim().toLowerCase())){
+                filteredList.value.push(film)
+            }
+        }
     }
 </script>
 <template>
-    <searchComponent @searchInput="getSearch"/>
+    <searchComponent @searchInput="filter" placeholder="Recherche film ici..."/>
     <div class="filmList">
-        <section v-for="film in ListFilm">
-            <filmListDetailComponent :film="film" v-if="filter(film.nom)"/>
+        <section v-for="film in filteredList">
+            <filmListDetailComponent :film="film"/>
         </section>
     </div>
 </template>
 <style scoped>
     @media screen and (max-width:600px){
-        .filmList{
-            grid-template-columns: 100%;
+        section{
+            width:98%;
         }
     }
     @media screen and (min-width:600px){
-        .filmList{
-            grid-template-columns: 50% 50%;
+        section{
+            width:48%;
         }
     }
     .filmList{
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        align-content: center;
+        justify-content: space-evenly;
     }
     section{
-        width:99%;
         background-color: v-bind(lighter_blue);
         border-radius: 1em;
         margin:1% .5% 1%;

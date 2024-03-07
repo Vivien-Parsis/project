@@ -5,14 +5,17 @@
     import searchLogo from "../../assets/img/search.svg?url"
     const emit = defineEmits(['searchInput'])
     const searchValue = ref("")
-    watch((searchValue), (value)=>{
-        emit('searchInput', value)
+    const { placeholder } = defineProps({
+        placeholder : String
     })
+    const search = () => {
+        emit('searchInput', searchValue.value)
+    }
 </script>
 <template>
     <div>
-        <iconComponent :src="searchLogo"/>
-        <input type="search" v-model="searchValue">
+        <iconComponent :src="searchLogo" @click="search()"/>
+        <input type="search" v-model="searchValue" :placeholder="placeholder ? placeholder : 'Recherche...'" @keyup.enter="search()">
     </div>
 </template>
 <style scoped>

@@ -12,7 +12,7 @@
 </script>
 <template>
     <h3 v-text="serie.nom"></h3>
-    <iframe v-bind:src="serie.video"></iframe>
+    <img :src="'../../src/assets/img/serie/serie_cover_'+serie.id+'.png'">
     <p v-text="serie.synospis"></p>
     <router-link v-bind:to="'/serie/watch/'+serie.id">Regarder</router-link>
     <button class="favButton" @click="favoriteStore.switchFavoriteSerie(serie.id)">
@@ -50,8 +50,9 @@
     a:hover{
         color:v-bind(orange);
     }
-    iframe{
-        aspect-ratio:16/9;
+    img{
+        width:80%;
+        aspect-ratio: 16/9;
     }
     .favButton{
         background-color: rgba(0,0,0,0);

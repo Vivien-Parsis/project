@@ -20,7 +20,7 @@
     
 </script>
 <template>
-    <FilmListComponent :ListFilm="FilmList ? FilmList : []"/>
+    <FilmListComponent v-if="FilmList" :ListFilm="FilmList"/>
 </template>
 <style scoped>
 </style>

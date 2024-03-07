@@ -20,7 +20,7 @@
     
 </script>
 <template>
-    <SerieListComponent :ListSerie="SerieList ? SerieList : []"/>
+    <SerieListComponent v-if="SerieList" :ListSerie="SerieList"/>
 </template>
 <style scoped>
 </style>

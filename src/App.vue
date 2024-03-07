@@ -1,13 +1,14 @@
 <script setup>
-    import LoadingComponent from './components/common/LoadingComponent.vue';
-    import { ref } from 'vue'
+    import LoadingComponent from './components/common/LoadingComponent.vue'
+    import ScrollToTopComponent from './components/common/ScrollToTopComponent.vue'
     import { useLoadingStore } from './store/loading.store'
-    import { black, sky_blue } from './const/style';
+    import { black } from './const/style'
     const loadingStore = useLoadingStore()
 </script>
 
 <template>
         <LoadingComponent v-if="loadingStore.getLoading()"/>
+        <ScrollToTopComponent/>
         <router-view v-slot="{ Component , route }"> 
             <Transition name="slide-fade" mode="out-in">
                 <div :key="route.path" @loading="unableLoading()">
