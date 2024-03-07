@@ -3,7 +3,7 @@
     import { sky_blue, isMobile } from "../../const/style"
     import { useLoginStore } from "../../store/login.store"
     const loginStore = useLoginStore()
-    const marginRightOfTitle = isMobile ? "50%" : "calc(50% + 1.5em + 1em)"
+    const marginRightOfTitle = !loginStore.isSign() || isMobile ? "50%" : "calc(50% + 1.5em + 1em)"
 </script>
 <template>
     <header>

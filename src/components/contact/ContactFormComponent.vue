@@ -1,9 +1,6 @@
 <script setup>
     import { ref } from 'vue'
-    import { messageService } from "../../services"
-    import { useLoadingStore } from '../../store/loading.store'
-    const loadingStore = useLoadingStore()
-    loadingStore.setLoading(false)
+    import { messageService } from "../../services/mesage.services"
     const formValue = ref([])
     const errorMessage = ref("")
 
@@ -22,7 +19,6 @@
 </script>
 <template>
     <form>
-        <h3>Contact us</h3>
         <input type="email" placeholder="inserer email ici..." v-model="formValue.email" required>
         <textarea placeholder="inserer message ici..." v-model="formValue.message" required></textarea>
         <input type="button" value="envoyez" @click="envoyeContact()"> 

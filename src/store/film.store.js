@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import { filmService } from "../services"
+import { filmService } from "../services/film.services"
 
 export const useFilmStore = defineStore('film',()=>{
     async function getFilm (email, password) {

@@ -8,21 +8,16 @@
     </nav>
 </template>
 <script setup>
-    import { useRouter, useRoute } from "vue-router"
+    import { useRoute } from "vue-router"
     import { ref } from "vue"
     import { useLoginStore } from "../../store/login.store"
     import NavLinkComponent from "./NavLinkComponent.vue"
     import navButton from "../../assets/img/nav.svg?url"
     import { light_blue, black, orange, red, isMobile } from '../../const/style'
     const loginStore = useLoginStore()
-    const router = useRouter()
     const route = useRoute()
     const showNav = ref(isMobile ? false : true)
     const toggleNav = () => {showNav.value = !showNav.value} 
-    // const routerListAuthReq = {}
-    // for(let currentroute of router.getRoutes()){
-    //     routerListAuthReq[currentroute.path] = currentroute.meta.authReq
-    // }
     const navLinkList = ref([
         {
             check : loginStore.isSign(),

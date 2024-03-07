@@ -1,8 +1,8 @@
 <script setup>
     import { useLoadingStore } from '../../store/loading.store'
     import IconComponent from '../common/IconComponent.vue'
-    import ErrorIcon from "../../assets/img/error.svg?url"
-import { computed } from 'vue';
+    import ErrorIcon from '../../assets/img/error.svg?url'
+    import { computed } from 'vue'
     const { error, message } = defineProps({
         error:String,
         message:String

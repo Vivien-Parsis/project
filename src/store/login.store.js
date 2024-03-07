@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import { loginService } from "../services"
+import { loginService } from "../services/login.services"
 import { ref } from "vue"
 
 export const useLoginStore = defineStore('login',()=>{

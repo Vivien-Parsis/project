@@ -1,10 +1,10 @@
 <script setup>
+    import favoriteSection from './favoriteSectionComponent.vue'
     import { onMounted, ref, watch } from 'vue'
     import { useFilmStore } from '../../store/film.store'
     import { useSerieStore } from '../../store/serie.store'
     import { useLoginStore } from '../../store/login.store'
     import { useLoadingStore } from '../../store/loading.store'
-    import favoriteSection from './favoriteSectionComponent.vue'
     import { black } from '../../const/style'
     const loadingStore = useLoadingStore()
     const loginStore = useLoginStore()

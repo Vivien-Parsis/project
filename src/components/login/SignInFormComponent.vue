@@ -15,8 +15,8 @@
 </script>
 <template>
     <form @submit="formSignIn">
-        <input name="email" type="email" placeholder="inserer email..." required>
-        <input name="password" type="password" placeholder="inserer mot de passe..." required>
+        <input name="email" type="email" placeholder="inserer email..." required autocomplete="false">
+        <input name="password" type="password" placeholder="inserer mot de passe..." required autocomplete="false">
         <input type="submit" value="se connecter">
     </form>
 </template>

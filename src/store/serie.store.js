@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import { serieService } from "../services"
+import { serieService } from "../services/serie.services"
 
 export const useSerieStore = defineStore('serie',()=>{
     async function getSerie (email, password) {

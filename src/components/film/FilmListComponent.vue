@@ -1,7 +1,8 @@
-<script setup>import searchComponent from "../common/SearchComponent.vue"
+<script setup>
+    import searchComponent from "../common/SearchComponent.vue"
+    import filmListDetailComponent from "./FilmListDetailComponent.vue"
     import { ref } from "vue"
     import { lighter_blue } from '../../const/style'
-    import filmListDetailComponent from "./FilmListDetailComponent.vue"
     const props = defineProps({
         ListFilm:Array
     })
@@ -40,6 +41,7 @@
         align-items: stretch;
         align-content: center;
         justify-content: space-evenly;
+        margin: 0 0 5%;
     }
     section{
         background-color: v-bind(lighter_blue);

@@ -9,7 +9,7 @@
     const user = loginStore.getUser()   
     const { signOut } = storeToRefs(loginStore) 
     const SignOut = async () => {
-        await loginStore.signOut()
+        loginStore.signOut()
         router.push({path:"/"})
     } 
 </script>

@@ -41,6 +41,7 @@
         align-items: stretch;
         align-content: center;
         justify-content: space-evenly;
+        margin: 0 0 5%;
     }
     section{
         background-color: v-bind(lighter_blue);

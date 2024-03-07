@@ -1,6 +1,6 @@
 <script setup>
-    import { onMounted, ref, watch } from 'vue'
     import FilmListComponent from './FilmListComponent.vue'
+    import { onMounted, ref, watch } from 'vue'
     import { useLoginStore } from '../../store/login.store'
     import { useFilmStore } from '../../store/film.store'
     import { useLoadingStore } from '../../store/loading.store'

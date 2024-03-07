@@ -8,7 +8,7 @@
         title:String,
         type:String
     })
-    const favorite = ref(type == "serie" ? favoriteStore.serieFavorite : type == "film" ? favoriteStore.filmFavorite : [])
+    const favorite = ref(type == "serie" ? favoriteStore.getSerieFavorite() : type == "film" ? favoriteStore.getFilmFavorite() : [])
 </script>
 <template>
     <h2>{{ title }}</h2>
@@ -26,7 +26,7 @@
     li{
         background-color: v-bind(lighter_blue);
         margin:0;
-        padding:0.5em;
+        padding:0.5em 0;
         width: 100%;
         list-style:none;
     }
