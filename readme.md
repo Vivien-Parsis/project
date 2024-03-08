@@ -40,7 +40,7 @@ Site pour parcourir une liste de differents media
 
 ## lien vers les apis utilisées
 
-- [API media](https://vue-project-api-57ap.onrender.com)
+- [API media](https://vue-project-api-57ap.onrender.com) - [Github](https://github.com/Vivien-Parsis/vue-project-api)
 
 ## Auteur
 
