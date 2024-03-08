@@ -10,7 +10,7 @@
     const filter = (value) => {
         filteredList.value = []
         for(let film of props.ListFilm){
-            if(serie.nom.toLowerCase().includes(value.trim().toLowerCase())){
+            if(film.nom.toLowerCase().includes(value.trim().toLowerCase())){
                 filteredList.value.push(film)
             }
         }

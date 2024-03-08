@@ -7,10 +7,11 @@
     const {serie} = defineProps({
         serie:Object
     })
+    const imgSrc = './src/assets/img/serie/serie_cover_'+serie.id+'.png?url'
 </script>
 <template>
     <h3 v-text="serie.nom"></h3>
-    <img :src="'/src/assets/img/serie/serie_cover_'+serie.id+'.png'">
+    <img :src="imgSrc">
     <p v-text="serie.synospis"></p>
     <router-link v-bind:to="'/serie/watch/'+serie.id">Regarder</router-link>
     <button class="favButton" @click="favoriteStore.switchFavoriteSerie(serie.id)">

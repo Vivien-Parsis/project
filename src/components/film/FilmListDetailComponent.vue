@@ -7,10 +7,11 @@
     const {film} = defineProps({
         film:Object
     })
+    const imgSrc = './src/assets/img/film/film_cover_'+film.id+'.png?url'
 </script>
 <template>
     <h3 v-text="film.nom"></h3>
-    <img :src="'/src/assets/img/film/film_cover_'+film.id+'.png'">
+    <img :src="imgSrc">
     <p v-text="film.synospis"></p>
     <router-link v-bind:to="'/film/watch/'+film.id">Regarder</router-link>
     <button class="favButton" @click="favoriteStore.switchFavoriteFilm(film.id)">
