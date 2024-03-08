@@ -1,6 +1,6 @@
 @font-face {
     font-family: lexend;
-    src: url("./assets/font/Lexend-Regular.ttf");
+    src: url("/assets/font/Lexend-Regular.ttf");
 }
 html, input::placeholder{
     font-family: lexend, Arial, Helvetica, sans-serif;
