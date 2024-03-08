@@ -10,5 +10,6 @@ export default defineConfig({
     watch: {
       usePolling: true
     }
-  }
+  },
+  publicDir:"./src/assets"
 })
